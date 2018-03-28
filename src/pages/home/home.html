@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-row>
-    <ion-col col-9>
+    <!--<ion-col col-9>
       <ion-item>
         <ion-input type="text" [(ngModel)]="newItem" placeholder="Introduce una nota"></ion-input>
       </ion-item>
@@ -14,13 +14,20 @@
 
     <ion-col col-3>
       <button ion-button (click)="add()">Añadir</button>
+    </ion-col>-->
+    <ion-col text-center>
+      <h1>Mi lista</h1>
     </ion-col>
+
   </ion-row>
   <ion-list>
     <ion-item-sliding *ngFor="let item of items | async">
-      <ion-item>{{item}}</ion-item>
+      <ion-item>{{item.text}}</ion-item>
       <ion-item-options side="right">
-        <button ion-button color="danger" icon-only (click)="remove(item.$key)">
+        <button ion-button color="default" icon-only (click)="update(item.key)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button color="danger" icon-only (click)="remove(item.key)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
@@ -28,4 +35,8 @@
     </ion-item-sliding>
 
   </ion-list>
+
+  <ion-fab bottom center>
+    <button ion-fab (click)="addNote()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

@@ -16,7 +16,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
 import {SocketIoModule, SocketIoConfig} from "ng-socket-io";
 
-const config: SocketIoConfig = { url: 'http://localhost:3001', options: {}};
+const config: SocketIoConfig = { url: 'http://172.31.50.172:3001', options: {}};
 
 const firebaseConfig = {
   apiKey: "AIzaSyAL-wPf3Zl5NEKUr9HJ74M1QRIQLLvrnog",
