@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
-import {AlertController, LoadingController, NavController} from 'ionic-angular';
+import {AlertController } from 'ionic-angular';
 import {FirebaseServiceProvider} from "../../providers/firebase-service/firebase-service";
-import {FirebaseListObservable} from "angularfire2/database";
+import {AngularFireDatabase } from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  items: FirebaseListObservable<any[]>;
+  items: Observable<any[]>;
   newItem='';
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public loadingCtrl: LoadingController, public firebaseService: FirebaseServiceProvider) {
-    this.items=this.firebaseService.getItems();
+  constructor(public alertCtrl: AlertController,
+              public firebaseService: FirebaseServiceProvider,
+              public angDb: AngularFireDatabase) {
+    this.items = this.firebaseService.getItems();
   }
 
   add(){

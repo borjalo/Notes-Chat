@@ -10,7 +10,7 @@ export class FirebaseServiceProvider {
 
 
   getItems(){
-    return this.afd.list('/items/');
+    return this.afd.list('items').valueChanges();
   }
 
   add(name){

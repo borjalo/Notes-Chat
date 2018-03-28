@@ -8,12 +8,12 @@ import {Observable} from "rxjs/Observable";
   templateUrl: 'chat.html'
 })
 export class ChatPage {
+
   nickname: '';
   messages= [];
   message='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private socket: Socket, private toastCtrl: ToastController) {
-
     this.getMessages().subscribe(message =>{
       this.messages.push(message);
     });
@@ -35,9 +35,11 @@ export class ChatPage {
 
   }
 
+
   ionViewDidLoad(){
 
     this.socket.connect();
+    console.log("connected")
 
   }
 
